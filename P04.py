@@ -29,11 +29,15 @@ while(True):
     for i in range(min(len(job), m)):
         todo = b_tree[job[i]]
         if todo % 2 == 0:
-            new_tree.append(todo/2)
-            new_tree.append(todo/2)
+            new_tree.append(int(todo/2))
+            new_tree.append(int(todo/2))
         else :
-            new_tree.append((todo-1)/2)
-            new_tree.append((todo+1)/2)
+            if(len(job) > m) :
+                new_tree.append(1)
+                new_tree.append(int((todo-1)))
+            else:
+                new_tree.append(int((todo-1)/2))
+                new_tree.append(int((todo+1)/2))
 
     if len(job) > m :
         for i in range(0, len(job) - m) :
